@@ -1,5 +1,6 @@
 /* Created by Brendan
 Checks if input is a palindrome, thats about it 
+uses cin.getline(), stops at white space otherwise
 CYGWIN 64 BIT
 */
 
@@ -12,7 +13,7 @@ CYGWIN 64 BIT
 using namespace std;
 
 int main(){
-	char input [80], inputNoSpace [80];
+	char input [80], inputNoSpace [80], inputBackwards [80];
 	int openSpace = 0;
 	for(int x =0; x < 80; x++){
 		input[x]= '\0';
@@ -27,10 +28,24 @@ int main(){
 			openSpace++;
 		}
 	}
-	for(int x = 0; x < 80; x++){
-		cout << inputNoSpace[x];
+	int count = 0;
+	while(inputNoSpace[count] != '\0'){
+		count++;
 	}
-	//for(int x = 0;)
+	cout << count;
+	int y = 0;
+	for(int x = count; x >= 0; x--){
+		cout << "test";
+		inputBackwards[y]= inputNoSpace[x];
+		y++;
+	}
+	if(inputBackwards == inputNoSpace){
+		cout << "\nIs palindrome.";
+	}else{
+		cout < "\nNot palindrome.";
+	}
+	cout << "\nNo spaces: " << inputNoSpace;
+	cout << "\nBackwards: " << inputBackwards;
 	
 	
 	return 0;
