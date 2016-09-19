@@ -1,6 +1,8 @@
 /* Created by Brendan
 Checks if input is a palindrome, thats about it 
 uses cin.getline(), stops at white space otherwise
+had to insert NULL char at end of inputBackwards
+it was not putting a NULL char automatically
 CYGWIN 64 BIT
 */
 
@@ -32,21 +34,17 @@ int main(){
 	while(inputNoSpace[count] != '\0'){
 		count++;
 	}
-	cout << count;
 	int y = 0;
-	for(int x = count; x >= 0; x--){
-		cout << "test";
+	for(int x = count - 1; x >= 0; x--){
 		inputBackwards[y]= inputNoSpace[x];
 		y++;
 	}
-	if(inputBackwards == inputNoSpace){
+	inputBackwards[count]= '\0';
+	if(strcmp(inputNoSpace, inputBackwards) == 0){
 		cout << "\nIs palindrome.";
 	}else{
-		cout < "\nNot palindrome.";
+		cout << "\nNot palindrome.";
 	}
-	cout << "\nNo spaces: " << inputNoSpace;
-	cout << "\nBackwards: " << inputBackwards;
-	
 	
 	return 0;
 }
