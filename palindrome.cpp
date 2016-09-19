@@ -6,6 +6,7 @@ CYGWIN 64 BIT
 #include <iostream>
 #include <stdlib.h>
 #include <ctype.h>
+#include <string.h>
 
 
 using namespace std;
@@ -17,12 +18,11 @@ int main(){
 		input[x]= '\0';
 		inputNoSpace[x]= '\0';
 	}
-	cout << "Input text to see if it is a palindrome, spaces or punctuation do not matter. ";
-	cin >> input;
+	cout << "Input text to see if it is a palindrome, spaces or punctuation do not matter. \n";
+	cin.getline(input, 80);
 	
 	for(int x = 0; x < 80; x++){
-		if(!input[x] == ' ' && ispunct(input[x]) == 0){
-			cout << true;
+		if(isspace(input[x]) == 0 && ispunct(input[x]) == 0){
 			inputNoSpace[openSpace]+= input[x];
 			openSpace++;
 		}
@@ -33,6 +33,6 @@ int main(){
 	//for(int x = 0;)
 	
 	
-	
+	return 0;
 }
 
